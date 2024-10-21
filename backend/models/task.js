@@ -5,7 +5,7 @@ const taskSchema = new mongoose.Schema({
         required:true,
         unique: true,
     },
-    description: {
+    descp: {
         type: String,
         required: true,
         unique: true,

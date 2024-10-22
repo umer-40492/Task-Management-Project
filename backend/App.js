@@ -9,7 +9,7 @@ const UserAPI = require("./routes/user")
 const TaskAPI = require("./routes/task")
 require('./connection/connect');
 app.use('/api/v1', UserAPI);
-app.use('/api/v1', TaskAPI);
+app.use('/api/v2', TaskAPI);
 app.use('/', (req, res) =>{
     res.send('hello form backend');
 });

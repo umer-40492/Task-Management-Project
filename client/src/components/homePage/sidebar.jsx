@@ -1,11 +1,21 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react'
 import { CgNotes } from "react-icons/cg";
 import { MdLabelImportant } from "react-icons/md";
 import { FaCheckDouble } from "react-icons/fa";
 import { TbNotebookOff } from "react-icons/tb";
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { authActions } from '../../store/auth';
 const sidebar = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const logout =()=>{
+        dispatch(authActions.logout());
+        localStorage.clear("id");
+        localStorage.clear("token");
+        navigate('/signup')
+    }
     const heading = [
         {
             title: 'All',
@@ -45,7 +55,7 @@ const sidebar = () => {
         </div>
        
         <div>
-            <button className='w-full rounded p-2 bg-gray-700'>Log Out</button>
+            <button onClick={logout} className='w-full rounded p-2 bg-gray-700'>Log Out</button>
         </div>
     </>
   )

@@ -38,7 +38,7 @@ router.post("/sign-in", async (req, res) => {
     });
   }
 });
-router.get('/login', async(req, res)=>{
+router.post('/log-in', async(req, res)=>{
   const { username, password } = req.body;
   const existingUSer = await User.findOne({ username });
   if (!existingUSer) {

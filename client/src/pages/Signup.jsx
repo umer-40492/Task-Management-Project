@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 function Signup() {
   const history = useNavigate();
   const isLoggedIn  = useSelector((state)=> state.auth.isLoggedIn);
+  const [data, setData] = useState({username:"", email: "", password: ""});
   if(isLoggedIn){
     history('/')
     }
@@ -13,7 +14,6 @@ function Signup() {
     const {name, value} = e.target;
     setData({...data, [name]: value})
   }
-  const [data, setData] = useState({username:"", email: "", password: ""});
   
   const submit = async (e)=>{
     try {

@@ -67,8 +67,8 @@ router.put('/important-task/:id', authenticateToken, async(req, res)=>{
        const {id} = req.params;
        const taskData = await Task.findById(id);
        const importanttask = taskData.important;
-       await Task.findByIdAndUpdate(id, {imporant: !importanttask})
-       res.status(200).json({message: 'task updated successfully'})
+       await Task.findByIdAndUpdate(id, {important: !importanttask})
+       res.status(200).json({message: 'Important task updated successfully'})
     } catch (error) {
         res.status(400).json({
             message: 'internal server error'
@@ -82,7 +82,7 @@ router.put('/complete-task/:id', authenticateToken, async(req, res)=>{
        const taskData = await Task.findById(id);
        const completetask = taskData.complete;
        await Task.findByIdAndUpdate(id, {complete: !completetask})
-       res.status(200).json({message: 'task updated successfully'})
+       res.status(200).json({message: 'Completed task updated successfully'})
     } catch (error) {
         res.status(400).json({
             message: 'internal server error'

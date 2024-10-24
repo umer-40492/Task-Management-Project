@@ -6,15 +6,15 @@ import { useDispatch, useSelector } from 'react-redux';
 const Login = () => {
   const [data, setData] = useState({username:"", password: ""});
   const history = useNavigate();
-  const isLoggedIn  = useSelector((state)=> state.auth.isLoggedIn);
-  if(isLoggedIn){
-    history('/')
-    }
   const dispatch = useDispatch();
+  const isLoggedIn  = useSelector((state)=> state.auth.isLoggedIn);
   const change = (e) => {
     const {name, value} = e.target;
     setData({...data, [name]: value})
   }
+  if(isLoggedIn){
+    history('/')
+    }
   const submit = async (e)=>{
     try {
       e.preventDefault();

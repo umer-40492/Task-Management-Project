@@ -24,8 +24,10 @@ const sidebar = () => {
             const response = await axios.get('http://localhost:4000/api/v2/get-all-task',{headers});
             setData(response.data.data)
         };
-        
-        fetch();
+        if(localStorage.getItem("id") && localStorage.getItem("token"))
+            {
+                fetch();
+            }
     }, []);
     const heading = [
         {
